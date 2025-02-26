@@ -31,7 +31,7 @@ importers:
         specifier: ^17.1.0
         version: 17.8.1
       '@rollup/plugin-alias':
-        specifier: ^4.0.2
+        specifier: ^4.0.4
         version: 4.0.4(rollup@3.29.5)
       '@rollup/plugin-commonjs':
         specifier: ^23.0.0
@@ -108,6 +108,18 @@ importers:
 
   packages/react:
     dependencies:
+      shared:
+        specifier: workspace:*
+        version: link:../shared
+
+  packages/react-dom:
+    dependencies:
+      react:
+        specifier: workspace:*
+        version: link:../react
+      react-reconciler:
+        specifier: workspace:*
+        version: link:../react-reconciler
       shared:
         specifier: workspace:*
         version: link:../shared

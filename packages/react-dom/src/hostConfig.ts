@@ -11,12 +11,10 @@ export const appendInitialChild = (
 	parent: Instance | Container,
 	child: Instance
 ) => {
-	return {} as any;
+	parent.appendChild(child);
 };
 
-export const createTextInstance = (...args: any) => {
-	return {} as any;
+export const createTextInstance = (content: string) => {
+	return document.createTextNode(content);
 };
-export const appendChildToContainer = (...args: any) => {
-	return {} as any;
-};
+export const appendChildToContainer = appendInitialChild;
