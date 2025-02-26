@@ -1,16 +1,16 @@
-import { ReactElement } from 'react';
+import { ReactElementType } from 'shared/ReactTypes';
+import { mountChildFibers, reconcileChildFibers } from './childFibers';
 import { FiberNode } from './fiber';
 import { processUpdateQueue, UpdateQueue } from './updateQueue';
 import { HostComponenet, HostRoot, HostText } from './workTags';
-import { mountChildFibers, reconcileChildFibers } from './childFibers';
 
 export function beginWork(wip: FiberNode) {
 	// 比较后，返回子fiberNode
 	switch (wip.tag) {
 		case HostRoot:
-			return;
+			return updateHostRoot(wip);
 		case HostComponenet:
-			return;
+			return updateHostComponent(wip);
 		case HostText:
 			return null;
 		default:
@@ -40,12 +40,13 @@ function updateHostComponent(wip: FiberNode) {
 	return wip.child;
 }
 
-function reconcileChildren(wip: FiberNode, children?: ReactElement) {
+function reconcileChildren(wip: FiberNode, children?: ReactElementType) {
 	const current = wip.alternate;
 	if (current !== null) {
+		// update
 		wip.child = reconcileChildFibers(wip, current?.child, children);
 	} else {
+		// mount
 		wip.child = mountChildFibers(wip, null, children);
 	}
-	reconcileChildFibers(wip, current?.child, children);
 }

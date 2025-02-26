@@ -95,7 +95,7 @@ export const createWorkInProgress = (
 	wip.memoizedState = current.memoizedState;
 	return wip;
 };
-export function createFiberFromElement(element: ReactElementType) {
+export function createFiberFromElement(element: ReactElementType): FiberNode {
 	const { type, key, props } = element;
 	let fiberTag: WorkTag = FunctionComponent;
 	if (typeof type === 'string') {

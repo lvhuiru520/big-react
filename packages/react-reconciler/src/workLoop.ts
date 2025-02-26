@@ -10,7 +10,7 @@ function prepareFreshStack(root: FiberRootNode) {
 	workInProgress = createWorkInProgress(root.current, {});
 }
 export function scheduleUpdateOnFiber(fiber: FiberNode) {
-	// 调度功能
+	// TODO: 调度功能
 	const root = markUpdateFromFiberToRoot(fiber);
 	renderRoot(root);
 }
@@ -61,9 +61,11 @@ function commitRoot(root: FiberRootNode) {
 	root.finishedWork = null;
 	// 判断是否存在3个子阶段需要执行的操作
 	const subtreeHasEffect =
-		(finishedWork.subtreeFlags && MutationMask) !== NoFlags;
-	const rootHasEffect = (finishedWork.subtreeFlags && MutationMask) !== NoFlags;
+		(finishedWork.subtreeFlags & MutationMask) !== NoFlags;
+	const rootHasEffect = (finishedWork.subtreeFlags & MutationMask) !== NoFlags;
 	if (subtreeHasEffect || rootHasEffect) {
+
+		
 		root.current = finishedWork;
 	} else {
 		root.current = finishedWork;

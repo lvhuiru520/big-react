@@ -7,7 +7,10 @@ export const commitMutationEffects = (finishedWork: FiberNode) => {
 	nextEffect = finishedWork;
 	while (nextEffect !== null) {
 		const child: FiberNode | null = nextEffect.child;
-		if (nextEffect.subtreeFlags && MutationMask !== NoFlags && child !== null) {
+		if (
+			(nextEffect.subtreeFlags & MutationMask) !== NoFlags &&
+			child !== null
+		) {
 			nextEffect = child;
 		} else {
 			up: while (nextEffect !== null) {
@@ -45,7 +48,7 @@ function getHostParent(fiber: FiberNode): Container {
 	while (parent) {
 		const parentTag = parent.tag;
 		if (parentTag === HostComponenet) {
-			return parent.stateNode;
+			return parent.stateNode as Container;
 		}
 		if (parentTag === HostRoot) {
 			return (parent.stateNode as FiberRootNode).container;

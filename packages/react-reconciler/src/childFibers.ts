@@ -3,7 +3,11 @@ import { createFiberFromElement, FiberNode } from './fiber';
 import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
 import { HostText } from './workTags';
 import { Placement } from './fiberFlags';
-
+/**
+ *
+ * @param shouldTrackEffects 是否追踪副作用
+ * @returns
+ */
 export function ChildReconciler(shouldTrackEffects: boolean) {
 	function reconcileSingleElement(
 		returnFiber: FiberNode,
@@ -24,7 +28,7 @@ export function ChildReconciler(shouldTrackEffects: boolean) {
 		fiber.return = returnFiber;
 		return fiber;
 	}
-
+	// 插入单一的节点
 	function placeSingleChild(fiber: FiberNode) {
 		if (shouldTrackEffects && fiber.alternate === null) {
 			fiber.flags |= Placement;
