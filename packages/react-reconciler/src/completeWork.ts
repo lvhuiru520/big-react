@@ -1,6 +1,6 @@
 import { appendInitialChild, createInstance } from 'hostConfig';
 import { FiberNode } from './fiber';
-import { HostComponenet, HostRoot, HostText } from './workTabs';
+import { HostComponenet, HostRoot, HostText } from './workTags';
 import { NoFlags } from './fiberFlags';
 
 export function completeWork(wip: FiberNode) {

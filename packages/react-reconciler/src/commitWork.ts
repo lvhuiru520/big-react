@@ -1,7 +1,7 @@
 import { appendChildToContainer, Container } from 'hostConfig';
 import { FiberNode, FiberRootNode } from './fiber';
 import { MutationMask, NoFlags, Placement } from './fiberFlags';
-import { HostComponenet, HostRoot, HostText } from './workTabs';
+import { HostComponenet, HostRoot, HostText } from './workTags';
 let nextEffect: FiberNode | null = null;
 export const commitMutationEffects = (finishedWork: FiberNode) => {
 	nextEffect = finishedWork;

@@ -1,6 +1,6 @@
 import { Container } from 'hostConfig';
 import { FiberNode, FiberRootNode } from './fiber';
-import { HostRoot } from './workTabs';
+import { HostRoot } from './workTags';
 import {
 	createUpdate,
 	createUpdateQueue,

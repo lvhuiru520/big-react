@@ -2,7 +2,7 @@ import { beginWork } from './beginWork';
 import { completeWork } from './completeWork';
 import { createWorkInProgress, FiberNode, FiberRootNode } from './fiber';
 import { MutationMask, NoFlags } from './fiberFlags';
-import { HostRoot } from './workTabs';
+import { HostRoot } from './workTags';
 
 let workInProgress: FiberNode | null;
 

@@ -1,7 +1,7 @@
 import { ReactElementType } from 'shared/ReactTypes';
 import { createFiberFromElement, FiberNode } from './fiber';
 import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
-import { HostText } from './workTabs';
+import { HostText } from './workTags';
 import { Placement } from './fiberFlags';
 
 export function ChildReconciler(shouldTrackEffects: boolean) {

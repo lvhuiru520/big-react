@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { FiberNode } from './fiber';
 import { processUpdateQueue, UpdateQueue } from './updateQueue';
-import { HostComponenet, HostRoot, HostText } from './workTabs';
+import { HostComponenet, HostRoot, HostText } from './workTags';
 import { mountChildFibers, reconcileChildFibers } from './childFibers';
 
 export function beginWork(wip: FiberNode) {
